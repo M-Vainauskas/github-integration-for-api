@@ -95,7 +95,16 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var SwaggerPetstore = require('swagger_petstore');
 
-var api = new SwaggerPetstore.KaliauseApi()
+var defaultClient = SwaggerPetstore.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: petstore_auth
+var petstore_auth = defaultClient.authentications['petstore_auth'];
+petstore_auth.accessToken = "YOUR ACCESS TOKEN"
+
+var api = new SwaggerPetstore.PetApi()
+
+var body = new SwaggerPetstore.Pet(); // {Pet} Pet object that needs to be added to the store
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -104,7 +113,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.kalKaliause(callback);
+api.addPet(body, callback);
 
 ```
 
@@ -114,8 +123,6 @@ All URIs are relative to *https://dev-virtserver.swaggerhub.com/mvtest1/privateA
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SwaggerPetstore.KaliauseApi* | [**kalKaliause**](docs/KaliauseApi.md#kalKaliause) | **POST** /kaliause | Kaliause sedi viduryje lauko
-*SwaggerPetstore.KaliauseApi* | [**kaliausePut**](docs/KaliauseApi.md#kaliausePut) | **PUT** /kaliause | Idejom kaliause
 *SwaggerPetstore.PetApi* | [**addPet**](docs/PetApi.md#addPet) | **POST** /pet | Add a new pet to the store
 *SwaggerPetstore.PetApi* | [**deletePet**](docs/PetApi.md#deletePet) | **DELETE** /pet/{petId} | Deletes a pet
 *SwaggerPetstore.PetApi* | [**findPetsByStatus**](docs/PetApi.md#findPetsByStatus) | **GET** /pet/findByStatus | Finds Pets by status
