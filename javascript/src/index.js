@@ -17,12 +17,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ApiResponse', 'model/Category', 'model/Order', 'model/Pet', 'model/Tag', 'model/User', 'api/PetApi', 'api/StoreApi', 'api/UserApi'], factory);
+    define(['ApiClient', 'model/ApiResponse', 'model/Category', 'model/Order', 'model/Pet', 'model/Tag', 'model/User', 'api/KaliauseApi', 'api/PetApi', 'api/StoreApi', 'api/UserApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/ApiResponse'), require('./model/Category'), require('./model/Order'), require('./model/Pet'), require('./model/Tag'), require('./model/User'), require('./api/PetApi'), require('./api/StoreApi'), require('./api/UserApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ApiResponse'), require('./model/Category'), require('./model/Order'), require('./model/Pet'), require('./model/Tag'), require('./model/User'), require('./api/KaliauseApi'), require('./api/PetApi'), require('./api/StoreApi'), require('./api/UserApi'));
   }
-}(function(ApiClient, ApiResponse, Category, Order, Pet, Tag, User, PetApi, StoreApi, UserApi) {
+}(function(ApiClient, ApiResponse, Category, Order, Pet, Tag, User, KaliauseApi, PetApi, StoreApi, UserApi) {
   'use strict';
 
   /**
@@ -92,6 +92,11 @@
      * @property {module:model/User}
      */
     User: User,
+    /**
+     * The KaliauseApi service constructor.
+     * @property {module:api/KaliauseApi}
+     */
+    KaliauseApi: KaliauseApi,
     /**
      * The PetApi service constructor.
      * @property {module:api/PetApi}
